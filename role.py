@@ -13,7 +13,7 @@ class Role:
     def get_next_pos(self, move_pos):
         new_pos = self.pos + self.moveDict[move_pos]    # count the movement
 
-        print(self.name, "moves to ", new_pos)
+        print("(", self.name, "moves to ", new_pos, ")")
         return new_pos
 
     def set_pos(self, pos):
@@ -23,7 +23,7 @@ class Role:
         if self.pos not in self.forbiddenPos[direction]:
             return True
         else:
-            # print("*again!* direction cannot be ", direction, " when currPos is ", self.pos)
+            print("* Error: Try again! The direction cannot be '", direction, "' when currPos is ", self.pos)
             return False
 
 
@@ -54,7 +54,7 @@ class Player(Role):
 
     def move(self):
         while True:
-            print("Please input your movement.  {a: left / d: right / w: up / s: down}")
+            print("\n> Please input your movement  ( *tips a: left / d: right / w: up / s: down )")
             in_key = sys.stdin.readline()
 
             if in_key in list(self.key_to_direction):
@@ -66,4 +66,4 @@ class Player(Role):
                     self.set_pos(next_pos)
                     break
             else:
-                print("*Warning: Wrong typing!*")
+                print("* Warning: Wrong typing!")
