@@ -51,10 +51,8 @@ class Player(Role):
         self.name = "Player"
         self.face = "O__o"
         self.key_to_direction = {'a\n': 'left', 'd\n': 'right', 'w\n': 'up', 's\n': 'down'}
-        # self.currInput = ""
 
     def move(self, in_key):
-        # self.currInput = in_key
         while True:
             if in_key == "":
                 print("> Please input your movement:")
@@ -76,29 +74,3 @@ class Player(Role):
                 print("> Warning: Wrong typing!")
                 print("> *Tips: Press [a]->left / [d]->right / [w]->up / [s]->down")
                 in_key = ""
-
-
-    # def move(self):
-    #     while True:
-    #         # print("> Please input your movement:")
-    #         in_key = sys.stdin.readline()
-    #
-    #         if in_key == "H\n":
-    #
-    #         elif in_key in list(self.key_to_direction):
-    #             temp_dir = self.key_to_direction[in_key]    # change to direction
-    #
-    #             if self.correct_move(temp_dir):
-    #                 # print("* player's next_direction = ", temp_dir)
-    #                 next_pos = self.get_next_pos(temp_dir)
-    #                 self.set_pos(next_pos)
-    #                 break
-    #             else:
-    #                 print("> Error: Try again! The direction cannot be '", temp_dir, "' when currPos is ", self.pos)
-    #
-    #         else:
-    #             print("> Warning: Wrong typing!")
-    #             print("> *Tips: Press [a]->left / [d]->right / [w]->up / [s]->down")
-    #             print("> Please input your movement:")
-
-

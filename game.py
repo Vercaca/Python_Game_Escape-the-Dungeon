@@ -1,22 +1,35 @@
 # this is a function
 import sys
 import role
+import random
 
 
 class Game:
-    def __init__(self, pos_player, pos_monster, pos_exit):
+    def __init__(self):
+        # random the pos of the three main items
+        # random pos of monster
+        pos_monster = random.randrange(0, 9)
 
+        # random pos of exit
+        while True:
+            pos_exit = random.randrange(0, 9)
+            if pos_exit != pos_monster:
+                break
+
+        # random pos of player
+        while True:
+            pos_player = random.randrange(0, 9)
+            if pos_player != pos_monster and pos_player != pos_exit:
+                break
+
+    #     super(pos_player, pos_monster, pos_exit)
+    #
+    # def __init__(self, pos_player, pos_monster, pos_exit):
         self.pos_exit = pos_exit
 
         # create a player and a monster
         self.myPlayer = role.Player(pos_player)
         self.myMonster = role.Monster(pos_monster)
-
-    # def play(self):
-    #     # print(self, "posPlayer = ", self.myPlayer.pos, " , ", "posMonster = ", self.myMonster.pos, " , ", "posExit = "
-    #     # , self.pos_exit, "\n")
-    #     self.myPlayer.move()
-    #     self.myMonster.move(self.pos_exit)
 
     def play(self, in_key):
         # print(self, "posPlayer = ", self.myPlayer.pos, " , ", "posMonster = ", self.myMonster.pos, " , ", "posExit = "
@@ -34,6 +47,7 @@ class Game:
 
     def game_over(self):
         if self.myPlayer.pos == self.myMonster.pos:
+            self.myMonster.visible = True # print the monster
             print("||*** GameOver! You lose! ***                                 ||")
             return True
         else:
@@ -75,5 +89,4 @@ class Game:
         print("||【Hints】Press [H] to get the hints (show/hide Monster)     ||")
         print("||【Move】 Press [a]->left / [d]->right / [w]->up / [s]->down ||")
         print("||............................................................||")
-        # print("==============================================================")
 

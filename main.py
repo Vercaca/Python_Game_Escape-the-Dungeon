@@ -1,22 +1,5 @@
-import random
-import role
 import game
 import sys
-# random the pos of the three main items
-# random pos of monster
-posMonster = random.randrange(0, 9)
-
-# random pos of exit
-while True:
-    posExit = random.randrange(0, 9)
-    if posExit != posMonster:
-        break
-
-# random pos of player
-while True:
-    posPlayer = random.randrange(0, 9)
-    if posPlayer != posMonster and posPlayer != posExit:
-        break
 
 
 # welcome
@@ -27,7 +10,7 @@ print("|| Run and find the EXIT as soon as possible!                 ||")
 print("||                                                            ||")
 
 # create new game
-myGame = game.Game(posPlayer, posMonster, posExit)
+myGame = game.Game()
 
 # show the GUI
 myGame.print_main_menu()
@@ -50,6 +33,21 @@ while True:
     print("||////////////////////////////////////////////////////////////||")
     if myGame.end_game():
         myGame.print_gui()
-        break
+        # break
+        # restart?
+        print("> Restart? (Y/N)")
+        in_key = sys.stdin.readline()
+        while in_key != "Y\n" and in_key != "N\n":
+            print("> Restart? (Y/N)")
+            in_key = sys.stdin.readline()
+
+        if in_key == "Y\n":
+            myGame = game.Game()
+            # show the GUI
+            myGame.print_main_menu()
+            # myGame.print_gui()
+        elif in_key == "N\n":
+            print("> BYE BYE!")
+            break
 
     myGame.print_gui()
