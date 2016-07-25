@@ -18,11 +18,6 @@ while True:
     if posPlayer != posMonster and posPlayer != posExit:
         break
 
-print("Init: posPlayer = ", posPlayer, " , ", "posMonster = ", posMonster, " , ", "posExit = ", posExit)
-
-# create a player and a monster
-myPlayer = role.Player(posPlayer)
-myMonster = role.Monster(posMonster)
 
 # create new game
 myGame = game.Game(posPlayer, posMonster, posExit)
@@ -33,12 +28,3 @@ while True:
 
     if myGame.end_game():
         break
-
-
-
-# while True:
-#     game.play(myPlayer, myMonster)
-#     if game.end_game(myPlayer.pos, myMonster.pos, posExit):
-#         break
-#     else:
-#         print("posPlayer = ", posPlayer, " , ", "posMonster = ", posMonster, " , ", "posExit = ", posExit)

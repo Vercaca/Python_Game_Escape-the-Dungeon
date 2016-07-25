@@ -38,7 +38,7 @@ class Monster(Role):
             ran_pos = random.choice(list(self.moveDict))
 
             if self.correct_move(ran_pos):
-                print("* monster's ran_pos = ", ran_pos)
+                # print("* monster's ran_pos = ", ran_pos)
                 next_pos = self.get_next_pos(ran_pos)
                 if next_pos != pos_exit:
                     self.set_pos(next_pos)
@@ -54,8 +54,7 @@ class Player(Role):
 
     def move(self):
         while True:
-            print("\nPlease input your movement")
-            print("a: left / d: right / w: up / s: down")
+            print("Please input your movement.  {a: left / d: right / w: up / s: down}")
             in_key = sys.stdin.readline()
 
             if in_key in list(self.key_to_direction):
@@ -67,4 +66,4 @@ class Player(Role):
                     self.set_pos(next_pos)
                     break
             else:
-                print("Wrong typing!")
+                print("*Warning: Wrong typing!*")

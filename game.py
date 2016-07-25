@@ -12,6 +12,8 @@ class Game:
         self.myMonster = role.Monster(pos_monster)
 
     def play(self):
+        print(self.__str__ + "posPlayer = ", self.myPlayer.pos, " , ", "posMonster = ", self.myMonster.pos, " , ", "posExit = ",
+              self.pos_exit)
         self.myPlayer.move()
         self.myMonster.move(self.pos_exit)
 
@@ -25,15 +27,18 @@ class Game:
 
     def game_over(self):
         if self.myPlayer.pos == self.myMonster.pos:
-            print("GameOver! You lose!")
+            print(self.__str__ + "GameOver! You lose!")
             return True
         else:
             return False
 
     def game_win(self):
         if self.myPlayer.pos == self.pos_exit:
-            print("Congrats! You find the exit!")
+            print(self.__str__ + "Congrats! You find the exit!")
             return True
         else:
             return False
+
+    def __str__(self):
+        return "【system】"
 
